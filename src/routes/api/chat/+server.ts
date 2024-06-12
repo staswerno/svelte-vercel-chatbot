@@ -12,7 +12,7 @@ export const POST = (async ({ request }) => {
 
 	// it is possible to pass in different settings here
 	const result = await streamText({
-		model: openai('gpt-4-turbo-preview'),
+		model: openai('gpt-3.5-turbo'),
 		messages
 	});
 
