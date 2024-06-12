@@ -29,5 +29,11 @@
 		"typescript-eslint": "^8.0.0-alpha.20",
 		"vite": "^5.0.3"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"@ai-sdk/openai": "^0.0.27",
+		"@ai-sdk/svelte": "^0.0.1",
+		"ai": "^3.1.32",
+		"zod": "^3.23.8"
+	}
 }
