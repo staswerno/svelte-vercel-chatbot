@@ -1,5 +1,5 @@
 import { createOpenAI } from '@ai-sdk/openai';
-import { StreamingTextResponse, streamText } from 'ai';
+import { StreamData, StreamingTextResponse, streamText } from 'ai';
 import type { RequestHandler } from './$types';
 
 import { env } from '$env/dynamic/private';
@@ -16,5 +16,15 @@ export const POST = (async ({ request }) => {
 		messages
 	});
 
-	return result.toAIStreamResponse();
+	const data = new StreamData();
+
+	data.append({ test: 'value' });
+
+	const stream = result.toAIStream({
+		onFinal(_) {
+			data.close();
+		}
+	});
+
+	return new StreamingTextResponse(stream, {}, data);
 }) satisfies RequestHandler;
