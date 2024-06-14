@@ -4,7 +4,7 @@
 </script>
 
 <main>
-	<pre>{JSON.stringify($data, null, 2)}</pre>
+	<!-- <pre>{JSON.stringify($data, null, 2)}</pre> -->
 	<ul>
 		{#each $messages as message}
 			<li>{message.id} | {message.role}: {message.content}</li>

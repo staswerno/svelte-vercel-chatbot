@@ -13,18 +13,20 @@ export const POST = (async ({ request }) => {
 	// it is possible to pass in different settings here
 	const result = await streamText({
 		model: openai('gpt-3.5-turbo'),
+		system: 'Answer in the style of Barney the Dinosaur',
 		messages
 	});
 
-	const data = new StreamData();
+	// const data = new StreamData();
 
-	data.append({ test: 'value' });
+	// data.append({ test: 'value' });
 
-	const stream = result.toAIStream({
-		onFinal(_) {
-			data.close();
-		}
-	});
+	// const stream = result.toAIStream({
+	// 	onFinal(_) {
+	// 		data.close();
+	// 	}
+	// });
 
-	return new StreamingTextResponse(stream, {}, data);
+	// return new StreamingTextResponse(stream, {}, data);
+	return result.toAIStreamResponse();
 }) satisfies RequestHandler;
