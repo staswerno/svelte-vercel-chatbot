@@ -1,9 +1,10 @@
 <script>
 	import { useChat } from '@ai-sdk/svelte';
-	const { input, handleSubmit, messages, isLoading } = useChat();
+	const { input, handleSubmit, messages, data, isLoading } = useChat();
 </script>
 
 <main>
+	<pre>{JSON.stringify($data, null, 2)}</pre>
 	<ul>
 		{#each $messages as message}
 			<li>{message.id} | {message.role}: {message.content}</li>
