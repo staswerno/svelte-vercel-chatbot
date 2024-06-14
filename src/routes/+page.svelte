@@ -7,7 +7,7 @@
 	<!-- <pre>{JSON.stringify($data, null, 2)}</pre> -->
 	<ul>
 		{#each $messages as message}
-			<li>{message.id} | {message.role}: {message.content}</li>
+			<li>{message.role == 'user' ? 'you' : 'barney'}: {message.content}</li>
 		{/each}
 	</ul>
 	<form on:submit={handleSubmit}>
@@ -15,7 +15,7 @@
 		<button type="submit">Send</button>
 	</form>
 	<!-- fix -->
-	{#if isLoading}
-		<p>wait up</p>
+	{#if $isLoading}
+		<p>꩜ patience ꩜</p>
 	{/if}
 </main>
