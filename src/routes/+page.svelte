@@ -14,7 +14,6 @@
 		<input bind:value={$input} />
 		<button type="submit">Send</button>
 	</form>
-	<!-- fix -->
 	{#if $isLoading}
 		<p>꩜ patience ꩜</p>
 	{/if}
